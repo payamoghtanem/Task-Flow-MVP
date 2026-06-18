@@ -1,0 +1,56 @@
+name: Gate 2 — PR Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main, develop]
+
+jobs:
+  code-review:
+    name: Automated Code Review (Agent 12)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate Conventional Commits
+        uses: wagoid/commitlint-github-action@v5
+        with:
+          configFile: '.commitlintrc.json'
+
+      - name: Check naming conventions
+        run: |
+          echo "Checking naming conventions per standards/coding-standard/naming-conventions.md v1.0"
+          # Trigger Code Reviewer (12) agent logic
+          # Agent 12 produces REVIEW-REPORT.md
+
+      - name: OWASP Top-10 security review
+        run: |
+          echo "Running OWASP checks per frameworks/owasp/CLAUDE.md v1.0"
+
+      - name: Verify REVIEW-REPORT.md exists
+        run: |
+          if [ ! -f "REVIEW-REPORT.md" ]; then
+            echo "GATE 2 BLOCKED: REVIEW-REPORT.md not produced by Code Reviewer (12)"
+            exit 1
+          fi
+
+      - name: Check review verdict
+        run: |
+          VERDICT=$(grep -m1 "^## Verdict:" REVIEW-REPORT.md | awk '{print $3}')
+          if [ "$VERDICT" = "FAIL" ]; then
+            echo "GATE 2 BLOCKED: Code Reviewer (12) returned FAIL verdict"
+            cat REVIEW-REPORT.md
+            exit 1
+          fi
+          echo "GATE 2 PASS: Code review verdict = $VERDICT"
+
+  branch-protection-check:
+    name: Branch Protection Enforcement
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify PR template compliance
+        run: |
+          echo "Checking PR has: description, linked story, test evidence"

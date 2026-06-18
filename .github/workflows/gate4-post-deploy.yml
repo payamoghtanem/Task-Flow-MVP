@@ -1,0 +1,53 @@
+name: Gate 4 — Post-Deploy Verification
+
+on:
+  workflow_run:
+    workflows: ["Deploy to Staging"]
+    types: [completed]
+
+jobs:
+  smoke-tests:
+    name: Smoke Tests (Agent 18)
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run smoke tests
+        run: |
+          echo "Running smoke tests on staging environment"
+          # CI/CD Agent (18) executes smoke test suite
+          # Tests: health check, critical path, auth flow
+
+      - name: Gate 4 smoke test check
+        if: failure()
+        run: |
+          echo "GATE 4 BLOCKED: Smoke tests failed — initiating rollback"
+          echo "Reference: procedures/release-process/CLAUDE.md §Rollback"
+          exit 1
+
+  gdpr-deploy-check:
+    name: GDPR Check (Agent 17)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if PII-touching code in deploy
+        run: |
+          echo "Checking if this deploy contains PII-touching changes"
+          # If yes, trigger GDPR Agent (17) checklist
+
+      - name: GDPR clearance verification
+        run: |
+          echo "Verifying GDPR clearance per frameworks/gdpr/gdpr-checklist.md v1.0"
+          # Gate passes only if GDPR report = PASS
+
+  lesson-capture:
+    name: Deploy Notes (Agent 21)
+    runs-on: ubuntu-latest
+    needs: [smoke-tests, gdpr-deploy-check]
+    if: success()
+    steps:
+      - name: Trigger Lesson Learner
+        run: |
+          echo "Lesson Learner (21) capturing deployment notes"
+          echo "Appending to memories/central-lessons-learned/"

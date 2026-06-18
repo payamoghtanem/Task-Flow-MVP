@@ -1,0 +1,184 @@
+# Model Routing Matrix
+# Format: agent_slug: { primary, fallback, temperature, max_tokens, rationale }
+# Last updated: Sprint 0
+# Version: v1.0
+
+routing:
+  router:
+    primary: claude-haiku-4-5
+    fallback: claude-sonnet-4-6
+    temperature: 0.1
+    max_tokens: 2048
+    rationale: "Fast, cheap classification; deterministic routing"
+
+  orchestrator:
+    primary: claude-opus-4-8
+    fallback: claude-sonnet-4-6
+    temperature: 0.3
+    max_tokens: 8192
+    rationale: "Complex multi-step planning and decomposition"
+
+  product-owner:
+    primary: claude-opus-4-8
+    fallback: claude-sonnet-4-6
+    temperature: 0.4
+    max_tokens: 8192
+    rationale: "Strategic reasoning, stakeholder alignment"
+
+  scrum-master:
+    primary: claude-sonnet-4-6
+    fallback: claude-haiku-4-5
+    temperature: 0.2
+    max_tokens: 4096
+    rationale: "Process orchestration, ceremony facilitation"
+
+  product-analyst:
+    primary: claude-sonnet-4-6
+    fallback: claude-haiku-4-5
+    temperature: 0.3
+    max_tokens: 4096
+    rationale: "Analytical reasoning, KPI definition"
+
+  product-specialist:
+    primary: claude-sonnet-4-6
+    fallback: claude-haiku-4-5
+    temperature: 0.3
+    max_tokens: 4096
+    rationale: "Domain expertise, feature specification"
+
+  solution-architect:
+    primary: claude-opus-4-8
+    fallback: claude-sonnet-4-6
+    temperature: 0.2
+    max_tokens: 16384
+    rationale: "Deep architectural reasoning, high context"
+
+  ui-ux-designer:
+    primary: claude-sonnet-4-6
+    fallback: claude-haiku-4-5
+    temperature: 0.4
+    max_tokens: 8192
+    rationale: "Creative design within structured constraints"
+
+  fullstack-developer:
+    primary: claude-opus-4-8
+    fallback: claude-sonnet-4-6
+    temperature: 0.2
+    max_tokens: 32768
+    rationale: "Deep code generation, architecture compliance"
+
+  data-engineer:
+    primary: claude-opus-4-8
+    fallback: claude-sonnet-4-6
+    temperature: 0.1
+    max_tokens: 16384
+    rationale: "SQL/pipeline/schema — deterministic output preferred"
+
+  data-scientist:
+    primary: claude-sonnet-4-6
+    fallback: claude-haiku-4-5
+    temperature: 0.3
+    max_tokens: 8192
+    rationale: "Statistical analysis, experiment design"
+
+  ai-engineer:
+    primary: claude-opus-4-8
+    fallback: claude-sonnet-4-6
+    temperature: 0.3
+    max_tokens: 16384
+    rationale: "Prompt engineering, model integration, evals"
+
+  code-reviewer:
+    primary: claude-sonnet-4-6
+    fallback: claude-haiku-4-5
+    temperature: 0.1
+    max_tokens: 8192
+    rationale: "Static analysis, pattern detection — READ-ONLY"
+
+  tester:
+    primary: claude-sonnet-4-6
+    fallback: claude-haiku-4-5
+    temperature: 0.2
+    max_tokens: 8192
+    rationale: "Deterministic test generation"
+
+  validator:
+    primary: claude-sonnet-4-6
+    fallback: claude-sonnet-4-6
+    temperature: 0.1
+    max_tokens: 4096
+    rationale: "Requirements checklist — binary pass/fail"
+
+  requirements-traceability-compliance:
+    primary: claude-sonnet-4-6
+    fallback: claude-haiku-4-5
+    temperature: 0.1
+    max_tokens: 16384
+    rationale: "Document cross-referencing — large context needed"
+
+  security-agent:
+    primary: claude-opus-4-8
+    fallback: claude-sonnet-4-6
+    temperature: 0.1
+    max_tokens: 16384
+    rationale: "Adversarial reasoning, threat modeling"
+
+  gdpr-compliance:
+    primary: claude-sonnet-4-6
+    fallback: claude-haiku-4-5
+    temperature: 0.1
+    max_tokens: 8192
+    rationale: "Compliance checklist execution"
+
+  cicd-infrastructure:
+    primary: claude-sonnet-4-6
+    fallback: claude-haiku-4-5
+    temperature: 0.1
+    max_tokens: 8192
+    rationale: "IaC templating, pipeline configs — deterministic"
+
+  git-github-governance:
+    primary: claude-haiku-4-5
+    fallback: claude-sonnet-4-6
+    temperature: 0.0
+    max_tokens: 2048
+    rationale: "Deterministic Git CLI ops"
+
+  cloud-platform-engineer:
+    primary: claude-sonnet-4-6
+    fallback: claude-haiku-4-5
+    temperature: 0.1
+    max_tokens: 8192
+    rationale: "IaC, cloud configs — deterministic output"
+
+  lesson-learner:
+    primary: claude-haiku-4-5
+    fallback: claude-sonnet-4-6
+    temperature: 0.4
+    max_tokens: 4096
+    rationale: "Lightweight summarization and synthesis"
+
+# Cost Tier Reference
+cost_tiers:
+  tier_1_fast:
+    model: claude-haiku-4-5
+    cost_per_1k_input: 0.00025
+    cost_per_1k_output: 0.00125
+    use_for: "Routing, git ops, deterministic tasks"
+  tier_2_balanced:
+    model: claude-sonnet-4-6
+    cost_per_1k_input: 0.003
+    cost_per_1k_output: 0.015
+    use_for: "Process orchestration, QA, compliance"
+  tier_3_powerful:
+    model: claude-opus-4-8
+    cost_per_1k_input: 0.015
+    cost_per_1k_output: 0.075
+    use_for: "Architecture, deep code, security analysis"
+
+# Circuit Breaker
+circuit_breaker:
+  latency_p99_threshold_ms: 30000
+  error_rate_threshold_pct: 5
+  fallback_trigger: "Automatic switch to fallback model on threshold breach"
+  recovery_window_minutes: 15

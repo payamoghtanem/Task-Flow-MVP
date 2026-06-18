@@ -1,0 +1,45 @@
+# Product Roadmap
+# Maintained by: Product Owner (02) + Orchestrator (01)
+# Last updated: Sprint 0
+
+metadata:
+  version: "1.0"
+  last_updated: "Sprint 0"
+  owner: "product-owner"
+
+horizons:
+  now:
+    label: "Now (Current Quarter)"
+    theme: "Foundation"
+    epics:
+      - id: EPIC-001
+        title: "Team Operating System"
+        status: DONE
+        sprint: 0
+        goal: "Establish all agent definitions, standards, and procedures"
+
+  next:
+    label: "Next (Next Quarter)"
+    theme: "Core Product"
+    epics:
+      - id: EPIC-002
+        title: "Core Feature Set"
+        status: PLANNED
+        sprint: "1-4"
+        goal: "Build the primary product value proposition"
+
+  later:
+    label: "Later (Future)"
+    theme: "Scale & Enhance"
+    epics:
+      - id: EPIC-003
+        title: "Performance & Observability"
+        status: IDEA
+        sprint: "5+"
+        goal: "Ensure production readiness at scale"
+
+principles:
+  - "Business value drives priority — not technical preference"
+  - "Shipped beats perfect"
+  - "Security and compliance are non-negotiable, not optional"
+  - "Every sprint produces demonstrable value"

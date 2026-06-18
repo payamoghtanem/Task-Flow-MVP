@@ -1,0 +1,44 @@
+{
+  "model": "claude-sonnet-4-6",
+  "agents": {
+    "00_ROUTER": { "model": "claude-haiku-4-5", "fallback": "claude-sonnet-4-6", "max_tokens": 2048 },
+    "01_ORCHESTRATOR": { "model": "claude-opus-4-8", "fallback": "claude-sonnet-4-6", "max_tokens": 8192 },
+    "02_PRODUCT_OWNER": { "model": "claude-opus-4-8", "fallback": "claude-sonnet-4-6", "max_tokens": 8192 },
+    "03_SCRUM_MASTER": { "model": "claude-sonnet-4-6", "fallback": "claude-haiku-4-5", "max_tokens": 4096 },
+    "06_SOLUTION_ARCHITECT": { "model": "claude-opus-4-8", "fallback": "claude-sonnet-4-6", "max_tokens": 16384 },
+    "08_FULLSTACK_DEVELOPER": { "model": "claude-opus-4-8", "fallback": "claude-sonnet-4-6", "max_tokens": 32768 },
+    "12_CODE_REVIEWER": { "model": "claude-sonnet-4-6", "fallback": "claude-haiku-4-5", "max_tokens": 8192 },
+    "16_SECURITY_AGENT": { "model": "claude-opus-4-8", "fallback": "claude-sonnet-4-6", "max_tokens": 16384 }
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(ls:*)",
+      "Read(*)",
+      "Glob(*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[AUDIT] Bash tool invoked by agent at '$(date -u +%Y-%m-%dT%H:%M:%SZ) >> artifacts/audit-trail.md"
+          }
+        ]
+      }
+    ]
+  },
+  "memory": {
+    "shared_context_path": "memories/shared-context/",
+    "lessons_path": "memories/central-lessons-learned/",
+    "agent_memory_max_lines": 200
+  },
+  "quality_gates": {
+    "coverage_threshold": 80,
+    "security_block_severity": "P1",
+    "traceability_block_on_red_gaps": true
+  }
+}

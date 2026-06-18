@@ -1,0 +1,66 @@
+name: Gate 3 — Post-Merge Quality
+
+on:
+  push:
+    branches: [main, develop]
+
+jobs:
+  test-coverage:
+    name: Test Suite & Coverage (Agent 13)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (if applicable)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          if [ -f "package.json" ]; then npm ci; fi
+          if [ -f "requirements.txt" ]; then pip install -r requirements.txt; fi
+
+      - name: Run test suite with coverage
+        run: |
+          if [ -f "package.json" ]; then
+            npx jest --coverage --coverageThreshold='{"global":{"lines":80,"branches":75,"functions":85,"statements":80}}'
+          fi
+          if [ -f "requirements.txt" ]; then
+            python -m pytest --cov --cov-fail-under=80
+          fi
+
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v3
+        with:
+          fail_ci_if_error: true
+
+      - name: Gate 3 coverage check
+        if: failure()
+        run: |
+          echo "GATE 3 BLOCKED: Coverage below threshold (80%)"
+          echo "Reference: standards/testing-standard/coverage-thresholds.md v1.0"
+          exit 1
+
+  traceability-check:
+    name: Requirements Traceability (Agent 15)
+    runs-on: ubuntu-latest
+    needs: test-coverage
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run traceability audit
+        run: |
+          echo "Running traceability check per Workflow 3"
+          # Traceability Agent (15) produces compliance-report
+
+      - name: Check for RED gaps
+        run: |
+          if grep -q "| RED" artifacts/compliance-traceability-matrix.md 2>/dev/null; then
+            echo "GATE 3 FLAG: RED traceability gaps detected"
+            echo "Reference: workflows/03-requirements-traceability-compliance-audit.md"
+            exit 1
+          fi
+          echo "GATE 3 PASS: Traceability matrix has no RED gaps"
