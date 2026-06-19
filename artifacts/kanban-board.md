@@ -15,30 +15,24 @@
 
 | BACKLOG | IN PROGRESS | IN REVIEW | TESTING | DONE |
 |---------|-------------|-----------|---------|------|
-| **Phase 3 — Frontend** | | | | **Sprint 0 (Complete)** |
-| S1-T12: Dashboard UI (fullstack-dev) | | | | SPRINT-0-001: Repo init |
-| S1-T15: TaskCard UI (fullstack-dev) | | | | SPRINT-0-002: 22 agent files |
-| **Phase 4 — Quality Gates** | | | | SPRINT-0-003: Standards v1.0 |
-| S1-T16: Unit tests ≥80% (tester) | | | | SPRINT-0-004: Frameworks v1.0 |
-| S1-T17: Integration tests ≥80% (tester) | | | | SPRINT-0-005: Procedures v1.0 |
-| S1-T18: Code review (code-reviewer) | | | | SPRINT-0-006: Workflows v1.0 |
-| S1-T19: Security scan (security-agent) | | | | SPRINT-0-007: Memory arch |
-| S1-T20: GDPR review (gdpr-compliance) | | | | SPRINT-0-008: Model mapping |
-| S1-T21: Gherkin AC validation (validator) | | | | SPRINT-0-009: CI/CD gates |
-| S1-T22: Traceability matrix (traceability-agent) | | | | **Sprint 1** |
-| S1-T23: PR + merge to develop (git-governance) | | | | S1-T01: DB Migration SQL ✓ |
-| S1-T24: CI/CD staging deploy (cicd-infra) | | | | S1-T02: Backend scaffold ✓ |
-| | | | | S1-T03: React scaffold ✓ |
-| | | | | S1-T04: Wireframes ✓ |
-| | | | | S1-T05: POST /api/auth/register ✓ |
-| | | | | S1-T06: Registration form UI ✓ |
-| | | | | S1-T07: POST /api/auth/login + logout ✓ |
+| **Phase 4 — Quality Gates** | | | | **Sprint 0 (Complete)** |
+| S1-T16: Unit tests ≥80% (tester) | | | | SPRINT-0-001 through 009 ✓ |
+| S1-T17: Integration tests ≥80% (tester) | | | | **Sprint 1 — Implementation** |
+| S1-T18: Code review (code-reviewer) | | | | S1-T01: DB Migration SQL ✓ |
+| S1-T19: Security scan (security-agent) | | | | S1-T02: Backend scaffold ✓ |
+| S1-T20: GDPR review (gdpr-compliance) | | | | S1-T03: React scaffold ✓ |
+| S1-T21: Gherkin AC validation (validator) | | | | S1-T04: Wireframes ✓ |
+| S1-T22: Traceability matrix (traceability-agent) | | | | S1-T05: POST /api/auth/register ✓ |
+| S1-T23: PR + merge to develop (git-governance) | | | | S1-T06: Registration form UI ✓ |
+| S1-T24: CI/CD staging deploy (cicd-infra) | | | | S1-T07: POST /api/auth/login + logout ✓ |
 | | | | | S1-T08: Auth middleware ✓ |
 | | | | | S1-T09: Login UI + ProtectedRoute ✓ |
 | | | | | S1-T10: POST /api/tasks ✓ |
 | | | | | S1-T11: GET /api/tasks ✓ |
+| | | | | S1-T12: Dashboard UI ✓ |
 | | | | | S1-T13: PATCH /api/tasks/:id ✓ |
 | | | | | S1-T14: DELETE /api/tasks/:id ✓ |
+| | | | | S1-T15: TaskCard UI ✓ |
 
 ---
 
@@ -161,13 +155,30 @@
 **Completed**: 2026-06-19T14:30:00Z
 **Notes**: DELETE /api/tasks/:id — ownership check (403 FORBIDDEN), 404 NOT_FOUND, permanent delete, 200 with message
 
+### S1-T12
+**Story**: STORY-004
+**Agent**: fullstack-developer (08)
+**Status**: DONE
+**Started**: 2026-06-19T14:30:00Z
+**Completed**: 2026-06-19T14:50:00Z
+**Notes**: Dashboard — header+logout, category filter tablist (WCAG), status-grouped task list (TODO/IN_PROGRESS/DONE sections), empty state, CreateTaskModal with focus trap+ESC+backdrop-click, optimistic state updates, 401 → logout+expired redirect
+
+### S1-T15
+**Story**: STORY-005
+**Agent**: fullstack-developer (08)
+**Status**: DONE
+**Started**: 2026-06-19T14:30:00Z
+**Completed**: 2026-06-19T14:50:00Z
+**Notes**: TaskCard — 3 status states (●◑✓) with CSS variants, forward-only status transitions, inline delete confirmation (not modal), aria-labels include task title, WCAG 2.1 AA
+
 ---
 
 ## Sprint 1 Progress
-- **Total Tasks**: 24 | **Done**: 13 | **Backlog**: 11 | **Blocked**: 0 | **Completion**: 54%
-- **Phase 1 Gate**: ✓ PASSED — all 4 foundation tasks complete
-- **Phase 2 Gate**: ✓ PASSED — all 5 auth tasks complete (S1-T05 through S1-T09)
-- **Phase 3 Gate**: Backend complete (S1-T10/11/13/14 ✓); Frontend remaining (S1-T12, S1-T15)
+- **Total Tasks**: 24 | **Done**: 15 | **Backlog**: 9 | **Blocked**: 0 | **Completion**: 63%
+- **Phase 1 Gate**: ✓ PASSED
+- **Phase 2 Gate**: ✓ PASSED — auth complete
+- **Phase 3 Gate**: ✓ PASSED — all 6 implementation tasks complete (S1-T10–S1-T15)
+- **Phase 4**: Quality gates pending (S1-T16 through S1-T24)
 
 ## Last Updated
-2026-06-19T14:30:00Z — S1-T10 + S1-T11 + S1-T13 + S1-T14 DONE — fullstack-developer (08)
+2026-06-19T14:50:00Z — S1-T12 + S1-T15 DONE — fullstack-developer (08)
