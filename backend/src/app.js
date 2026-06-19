@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const healthRouter = require('./routes/health');
 const authRouter = require('./routes/auth');
+const tasksRouter = require('./routes/tasks');
 
 function createApp() {
   const app = express();
@@ -20,6 +21,7 @@ function createApp() {
 
   app.use('/health', healthRouter);
   app.use('/api/auth', authRouter);
+  app.use('/api/tasks', tasksRouter);
 
   app.use((req, res) => {
     res.status(404).json({
