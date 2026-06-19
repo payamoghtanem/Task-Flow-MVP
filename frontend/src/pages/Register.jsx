@@ -1,0 +1,15 @@
+import { Navigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+
+export default function Register() {
+  const { isAuthenticated } = useAuth();
+
+  if (isAuthenticated) return <Navigate to="/dashboard" replace />;
+
+  return (
+    <main>
+      <h1>Create Account</h1>
+      <p>Registration form — implemented in S1-T06</p>
+    </main>
+  );
+}

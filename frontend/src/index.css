@@ -1,0 +1,79 @@
+/* Design tokens — architecture/ui/design-tokens.yaml */
+:root {
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-primary-focus: #6366f1;
+
+  --color-personal: #10b981;
+  --color-personal-bg: #d1fae5;
+  --color-professional: #3b82f6;
+  --color-professional-bg: #dbeafe;
+
+  --color-status-todo: #6b7280;
+  --color-status-todo-bg: #f3f4f6;
+  --color-status-in-progress: #f59e0b;
+  --color-status-in-progress-bg: #fef3c7;
+  --color-status-done: #10b981;
+  --color-status-done-bg: #d1fae5;
+
+  --color-bg: #f9fafb;
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+  --color-text: #111827;
+  --color-text-muted: #6b7280;
+  --color-text-disabled: #9ca3af;
+
+  --color-error: #ef4444;
+  --color-error-bg: #fef2f2;
+  --color-error-border: #fca5a5;
+
+  --radius-sm: 4px;
+  --radius-base: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-base: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+
+  --transition: 150ms ease-in-out;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* WCAG 2.1 AA — visible focus ring for all interactive elements */
+:focus-visible {
+  outline: 2px solid var(--color-primary-focus);
+  outline-offset: 2px;
+}
+
+/* Minimum tap target size (WCAG 2.5.5) */
+button,
+a,
+[role='button'] {
+  min-height: 44px;
+  min-width: 44px;
+  cursor: pointer;
+}

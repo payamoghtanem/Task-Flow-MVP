@@ -15,22 +15,19 @@
 
 | BACKLOG | IN PROGRESS | IN REVIEW | TESTING | DONE |
 |---------|-------------|-----------|---------|------|
-| **Phase 1 — Foundation** | | | | **Sprint 0 (Complete)** |
-| S1-T03: Frontend scaffold (fullstack-dev) | | | | SPRINT-0-001: Repo init |
-| S1-T04: Wireframes (ui-ux-designer) | | | | SPRINT-0-002: 22 agent files |
-| **Phase 2 — Authentication** | | | | SPRINT-0-003: Standards v1.0 |
-| S1-T05: POST /api/auth/register (fullstack-dev) | | | | SPRINT-0-004: Frameworks v1.0 |
-| S1-T06: Registration form UI (fullstack-dev) | | | | SPRINT-0-005: Procedures v1.0 |
-| S1-T07: POST /api/auth/login + logout (fullstack-dev) | | | | SPRINT-0-006: Workflows v1.0 |
-| S1-T08: Auth middleware (fullstack-dev) | | | | SPRINT-0-007: Memory arch |
-| S1-T09: Login UI + AuthContext + ProtectedRoute (fullstack-dev) | | | | SPRINT-0-008: Model mapping |
-| **Phase 3 — Task Management** | | | | SPRINT-0-009: CI/CD gates |
-| S1-T10: POST /api/tasks (fullstack-dev) | | | | **Sprint 1** |
-| S1-T11: GET /api/tasks (fullstack-dev) | | | | S1-T01: DB Migration SQL ✓ |
-| S1-T12: Dashboard UI (fullstack-dev) | | | | S1-T02: Backend scaffold ✓ |
-| S1-T13: PATCH /api/tasks/:id (fullstack-dev) | | | | |
-| S1-T14: DELETE /api/tasks/:id (fullstack-dev) | | | | |
-| S1-T15: TaskCard UI (fullstack-dev) | | | | |
+| **Phase 2 — Authentication** | | | | **Sprint 0 (Complete)** |
+| S1-T05: POST /api/auth/register (fullstack-dev) | | | | SPRINT-0-001: Repo init |
+| S1-T06: Registration form UI (fullstack-dev) | | | | SPRINT-0-002: 22 agent files |
+| S1-T07: POST /api/auth/login + logout (fullstack-dev) | | | | SPRINT-0-003: Standards v1.0 |
+| S1-T08: Auth middleware (fullstack-dev) | | | | SPRINT-0-004: Frameworks v1.0 |
+| S1-T09: Login UI + AuthContext + ProtectedRoute (fullstack-dev) | | | | SPRINT-0-005: Procedures v1.0 |
+| **Phase 3 — Task Management** | | | | SPRINT-0-006: Workflows v1.0 |
+| S1-T10: POST /api/tasks (fullstack-dev) | | | | SPRINT-0-007: Memory arch |
+| S1-T11: GET /api/tasks (fullstack-dev) | | | | SPRINT-0-008: Model mapping |
+| S1-T12: Dashboard UI (fullstack-dev) | | | | SPRINT-0-009: CI/CD gates |
+| S1-T13: PATCH /api/tasks/:id (fullstack-dev) | | | | **Sprint 1** |
+| S1-T14: DELETE /api/tasks/:id (fullstack-dev) | | | | S1-T01: DB Migration SQL ✓ |
+| S1-T15: TaskCard UI (fullstack-dev) | | | | S1-T02: Backend scaffold ✓ |
 | **Phase 4 — Quality Gates** | | | | |
 | S1-T16: Unit tests ≥80% (tester) | | | | |
 | S1-T17: Integration tests ≥80% (tester) | | | | |
@@ -39,8 +36,8 @@
 | S1-T20: GDPR review (gdpr-compliance) | | | | |
 | S1-T21: Gherkin AC validation (validator) | | | | |
 | S1-T22: Traceability matrix (traceability-agent) | | | | |
-| S1-T23: PR + merge to develop (git-governance) | | | | |
-| S1-T24: CI/CD staging deploy (cicd-infra) | | | | |
+| S1-T23: PR + merge to develop (git-governance) | | | | S1-T03: React scaffold ✓ |
+| S1-T24: CI/CD staging deploy (cicd-infra) | | | | S1-T04: Wireframes ✓ |
 
 ---
 
@@ -75,8 +72,27 @@
 **Notes**: One-line summary
 ```
 
+### S1-T03
+**Story**: STORY-001
+**Agent**: fullstack-developer (08)
+**Status**: DONE
+**Started**: 2026-06-19T13:00:00Z
+**Completed**: 2026-06-19T13:00:00Z
+**Notes**: React scaffold — Vite 5, React Router DOM v6, AuthContext, ProtectedRoute, api.js fetch client, Vitest config
+
+### S1-T04
+**Story**: STORY-001
+**Agent**: ui-ux-designer (07)
+**Status**: DONE
+**Started**: 2026-06-19T13:00:00Z
+**Completed**: 2026-06-19T13:00:00Z
+**Notes**: Wireframes for Registration, Login, Dashboard, Create Task + TaskCard states; design-tokens.yaml; full WCAG 2.1 AA specs
+
+---
+
 ## Sprint 1 Progress
-- **Total Tasks**: 24 | **Done**: 2 | **Backlog**: 22 | **Blocked**: 0 | **Completion**: 8%
+- **Total Tasks**: 24 | **Done**: 4 | **Backlog**: 20 | **Blocked**: 0 | **Completion**: 17%
+- **Phase 1 Gate**: ✓ PASSED — all 4 foundation tasks complete
 
 ## Last Updated
-2026-06-19T12:50:00Z — S1-T01 + S1-T02 DONE — data-engineer (09) + fullstack-developer (08)
+2026-06-19T13:00:00Z — S1-T03 + S1-T04 DONE — fullstack-developer (08) + ui-ux-designer (07)
