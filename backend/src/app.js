@@ -4,6 +4,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 
 const healthRouter = require('./routes/health');
+const authRouter = require('./routes/auth');
 
 function createApp() {
   const app = express();
@@ -18,6 +19,7 @@ function createApp() {
   app.use(express.json({ limit: '10kb' }));
 
   app.use('/health', healthRouter);
+  app.use('/api/auth', authRouter);
 
   app.use((req, res) => {
     res.status(404).json({

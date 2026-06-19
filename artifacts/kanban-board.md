@@ -16,11 +16,9 @@
 | BACKLOG | IN PROGRESS | IN REVIEW | TESTING | DONE |
 |---------|-------------|-----------|---------|------|
 | **Phase 2 — Authentication** | | | | **Sprint 0 (Complete)** |
-| S1-T05: POST /api/auth/register (fullstack-dev) | | | | SPRINT-0-001: Repo init |
-| S1-T06: Registration form UI (fullstack-dev) | | | | SPRINT-0-002: 22 agent files |
-| S1-T07: POST /api/auth/login + logout (fullstack-dev) | | | | SPRINT-0-003: Standards v1.0 |
-| S1-T08: Auth middleware (fullstack-dev) | | | | SPRINT-0-004: Frameworks v1.0 |
-| S1-T09: Login UI + AuthContext + ProtectedRoute (fullstack-dev) | | | | SPRINT-0-005: Procedures v1.0 |
+| S1-T06: Registration form UI (fullstack-dev) | | | | SPRINT-0-001: Repo init |
+| S1-T08: Auth middleware (fullstack-dev) | | | | SPRINT-0-002: 22 agent files |
+| S1-T09: Login UI + AuthContext + ProtectedRoute (fullstack-dev) | | | | SPRINT-0-003: Standards v1.0 |
 | **Phase 3 — Task Management** | | | | SPRINT-0-006: Workflows v1.0 |
 | S1-T10: POST /api/tasks (fullstack-dev) | | | | SPRINT-0-007: Memory arch |
 | S1-T11: GET /api/tasks (fullstack-dev) | | | | SPRINT-0-008: Model mapping |
@@ -38,6 +36,8 @@
 | S1-T22: Traceability matrix (traceability-agent) | | | | |
 | S1-T23: PR + merge to develop (git-governance) | | | | S1-T03: React scaffold ✓ |
 | S1-T24: CI/CD staging deploy (cicd-infra) | | | | S1-T04: Wireframes ✓ |
+| | | | | S1-T05: POST /api/auth/register ✓ |
+| | | | | S1-T07: POST /api/auth/login + logout ✓ |
 
 ---
 
@@ -88,11 +88,28 @@
 **Completed**: 2026-06-19T13:00:00Z
 **Notes**: Wireframes for Registration, Login, Dashboard, Create Task + TaskCard states; design-tokens.yaml; full WCAG 2.1 AA specs
 
+### S1-T05
+**Story**: STORY-002
+**Agent**: fullstack-developer (08)
+**Status**: DONE
+**Started**: 2026-06-19T13:00:00Z
+**Completed**: 2026-06-19T13:30:00Z
+**Notes**: POST /api/auth/register — email+password validation, bcrypt 12 rounds (SEC-008), RS256 JWT, 409 EMAIL_TAKEN, SQL injection safe
+
+### S1-T07
+**Story**: STORY-003
+**Agent**: fullstack-developer (08)
+**Status**: DONE
+**Started**: 2026-06-19T13:00:00Z
+**Completed**: 2026-06-19T13:30:00Z
+**Notes**: POST /api/auth/login (timing-oracle safe dummy hash) + POST /api/auth/logout (stateless 200); RS256 verify; INVALID_CREDENTIALS 401 no enumeration
+
 ---
 
 ## Sprint 1 Progress
-- **Total Tasks**: 24 | **Done**: 4 | **Backlog**: 20 | **Blocked**: 0 | **Completion**: 17%
+- **Total Tasks**: 24 | **Done**: 6 | **Backlog**: 18 | **Blocked**: 0 | **Completion**: 25%
 - **Phase 1 Gate**: ✓ PASSED — all 4 foundation tasks complete
+- **Phase 2 Gate**: 2/5 auth tasks done — S1-T05 + S1-T07 ✓; S1-T06, S1-T08, S1-T09 pending
 
 ## Last Updated
-2026-06-19T13:00:00Z — S1-T03 + S1-T04 DONE — fullstack-developer (08) + ui-ux-designer (07)
+2026-06-19T13:30:00Z — S1-T05 + S1-T07 DONE — fullstack-developer (08)
