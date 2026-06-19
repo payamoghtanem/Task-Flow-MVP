@@ -301,3 +301,15 @@ a,
   min-height: unset;
   min-width: unset;
 }
+
+/* ─── Session expired banner (amber / info) ─────────── */
+.session-expired-banner {
+  background: var(--color-status-in-progress-bg);
+  border: 1px solid var(--color-status-in-progress);
+  border-radius: var(--radius-base);
+  color: #92400e;
+  font-size: 0.875rem;
+  padding: var(--spacing-3) var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+  line-height: 1.5;
+}

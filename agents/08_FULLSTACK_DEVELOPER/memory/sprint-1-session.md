@@ -12,9 +12,12 @@ Sprint 1 — "Users can register, log in securely, and perform full CRUD on cate
 - S1-T05: POST /api/auth/register ✓
 - S1-T07: POST /api/auth/login + POST /api/auth/logout ✓
 
+- S1-T09: Login form UI + ProtectedRoute fix ✓
+
 ## In Progress
-- S1-T06: Registration form UI (NEXT — frontend)
-- S1-T08: Auth middleware JWT verification (NEXT — backend)
+- S1-T10: POST /api/tasks (NEXT — backend)
+- S1-T11: GET /api/tasks (NEXT — backend)
+- S1-T12: Dashboard UI (NEXT — frontend)
 
 ## Architecture Decisions
 - App factory pattern: createApp() in app.js, server.listen() in index.js (testability)

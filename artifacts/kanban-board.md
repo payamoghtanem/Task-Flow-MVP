@@ -15,25 +15,26 @@
 
 | BACKLOG | IN PROGRESS | IN REVIEW | TESTING | DONE |
 |---------|-------------|-----------|---------|------|
-| **Phase 2 — Auth (remaining)** | | | | **Sprint 0 (Complete)** |
-| S1-T09: Login UI + AuthContext + ProtectedRoute (fullstack-dev) | | | | SPRINT-0-001: Repo init |
-| **Phase 3 — Task Management** | | | | SPRINT-0-002: 22 agent files |
-| S1-T10: POST /api/tasks (fullstack-dev) | | | | SPRINT-0-003: Standards v1.0 |
-| S1-T11: GET /api/tasks (fullstack-dev) | | | | SPRINT-0-004: Frameworks v1.0 |
-| S1-T12: Dashboard UI (fullstack-dev) | | | | SPRINT-0-005: Procedures v1.0 |
-| S1-T13: PATCH /api/tasks/:id (fullstack-dev) | | | | SPRINT-0-006: Workflows v1.0 |
-| S1-T14: DELETE /api/tasks/:id (fullstack-dev) | | | | SPRINT-0-007: Memory arch |
-| S1-T15: TaskCard UI (fullstack-dev) | | | | SPRINT-0-008: Model mapping |
-| **Phase 4 — Quality Gates** | | | | SPRINT-0-009: CI/CD gates |
-| S1-T16: Unit tests ≥80% (tester) | | | | **Sprint 1** |
-| S1-T17: Integration tests ≥80% (tester) | | | | S1-T01: DB Migration SQL ✓ |
-| S1-T18: Code review (code-reviewer) | | | | S1-T02: Backend scaffold ✓ |
-| S1-T19: Security scan (security-agent) | | | | S1-T03: React scaffold ✓ |
-| S1-T20: GDPR review (gdpr-compliance) | | | | S1-T04: Wireframes ✓ |
-| S1-T21: Gherkin AC validation (validator) | | | | S1-T05: POST /api/auth/register ✓ |
-| S1-T22: Traceability matrix (traceability-agent) | | | | S1-T07: POST /api/auth/login + logout ✓ |
-| S1-T23: PR + merge to develop (git-governance) | | | | S1-T06: Registration form UI ✓ |
-| S1-T24: CI/CD staging deploy (cicd-infra) | | | | S1-T08: Auth middleware ✓ |
+| **Phase 3 — Task Management** | | | | **Sprint 0 (Complete)** |
+| S1-T10: POST /api/tasks (fullstack-dev) | | | | SPRINT-0-001: Repo init |
+| S1-T11: GET /api/tasks (fullstack-dev) | | | | SPRINT-0-002: 22 agent files |
+| S1-T12: Dashboard UI (fullstack-dev) | | | | SPRINT-0-003: Standards v1.0 |
+| S1-T13: PATCH /api/tasks/:id (fullstack-dev) | | | | SPRINT-0-004: Frameworks v1.0 |
+| S1-T14: DELETE /api/tasks/:id (fullstack-dev) | | | | SPRINT-0-005: Procedures v1.0 |
+| S1-T15: TaskCard UI (fullstack-dev) | | | | SPRINT-0-006: Workflows v1.0 |
+| **Phase 4 — Quality Gates** | | | | SPRINT-0-007: Memory arch |
+| S1-T16: Unit tests ≥80% (tester) | | | | SPRINT-0-008: Model mapping |
+| S1-T17: Integration tests ≥80% (tester) | | | | SPRINT-0-009: CI/CD gates |
+| S1-T18: Code review (code-reviewer) | | | | **Sprint 1** |
+| S1-T19: Security scan (security-agent) | | | | S1-T01: DB Migration SQL ✓ |
+| S1-T20: GDPR review (gdpr-compliance) | | | | S1-T02: Backend scaffold ✓ |
+| S1-T21: Gherkin AC validation (validator) | | | | S1-T03: React scaffold ✓ |
+| S1-T22: Traceability matrix (traceability-agent) | | | | S1-T04: Wireframes ✓ |
+| S1-T23: PR + merge to develop (git-governance) | | | | S1-T05: POST /api/auth/register ✓ |
+| S1-T24: CI/CD staging deploy (cicd-infra) | | | | S1-T06: Registration form UI ✓ |
+| | | | | S1-T07: POST /api/auth/login + logout ✓ |
+| | | | | S1-T08: Auth middleware ✓ |
+| | | | | S1-T09: Login UI + AuthContext + ProtectedRoute ✓ |
 
 ---
 
@@ -116,12 +117,20 @@
 **Completed**: 2026-06-19T14:00:00Z
 **Notes**: requireAuth middleware — RS256 JWT verify, UNAUTHORIZED/TOKEN_EXPIRED/INVALID_TOKEN error codes; timing-safe; ready to protect task routes (Phase 3)
 
+### S1-T09
+**Story**: STORY-003
+**Agent**: fullstack-developer (08)
+**Status**: DONE
+**Started**: 2026-06-19T14:00:00Z
+**Completed**: 2026-06-19T14:15:00Z
+**Notes**: Login form — email+password validation, INVALID_CREDENTIALS banner (no enumeration), session-expired amber banner, redirect to original route on success; ProtectedRoute bug fix (removed erroneous expired:true on first visit)
+
 ---
 
 ## Sprint 1 Progress
-- **Total Tasks**: 24 | **Done**: 8 | **Backlog**: 16 | **Blocked**: 0 | **Completion**: 33%
+- **Total Tasks**: 24 | **Done**: 9 | **Backlog**: 15 | **Blocked**: 0 | **Completion**: 38%
 - **Phase 1 Gate**: ✓ PASSED — all 4 foundation tasks complete
-- **Phase 2 Gate**: 4/5 auth tasks done — S1-T05 + S1-T06 + S1-T07 + S1-T08 ✓; S1-T09 pending
+- **Phase 2 Gate**: ✓ PASSED — all 5 auth tasks complete (S1-T05 through S1-T09)
 
 ## Last Updated
-2026-06-19T14:00:00Z — S1-T06 + S1-T08 DONE — fullstack-developer (08)
+2026-06-19T14:15:00Z — S1-T09 DONE — fullstack-developer (08)
