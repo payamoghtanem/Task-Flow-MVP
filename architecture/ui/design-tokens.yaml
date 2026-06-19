@@ -1,0 +1,110 @@
+# Design Tokens — TaskFlow MVP
+# Agent: 07 — UI/UX DESIGNER | Standards: coding-standard v1.0 | WCAG 2.1 AA
+# Generated: 2026-06-19T13:00:00Z
+# Referenced by: auth-wireframe.md, task-wireframe.md
+# Consumed by: Fullstack Developer (08) as CSS custom properties in src/index.css
+
+colors:
+  primary:
+    base: "#4f46e5"        # Indigo-600 — primary CTA, links
+    hover: "#4338ca"       # Indigo-700 — hover state
+    focus: "#6366f1"       # Indigo-500 — focus ring color
+    contrast_ratio: "4.5:1 on white"  # WCAG AA compliant
+
+  category:
+    personal: "#10b981"    # Emerald-500 — Personal tasks badge/border
+    professional: "#3b82f6"  # Blue-500 — Professional tasks badge/border
+    personal_bg: "#d1fae5"   # Emerald-100 — Personal category background
+    professional_bg: "#dbeafe" # Blue-100 — Professional category background
+
+  status:
+    todo: "#6b7280"        # Gray-500 — TODO badge
+    in_progress: "#f59e0b" # Amber-500 — IN_PROGRESS badge
+    done: "#10b981"        # Emerald-500 — DONE badge
+    todo_bg: "#f3f4f6"     # Gray-100
+    in_progress_bg: "#fef3c7"  # Amber-100
+    done_bg: "#d1fae5"     # Emerald-100
+
+  neutral:
+    bg: "#f9fafb"          # Gray-50 — page background
+    surface: "#ffffff"     # White — card/form surfaces
+    border: "#e5e7eb"      # Gray-200 — borders, dividers
+    text: "#111827"        # Gray-900 — body text (contrast 16.1:1 on white)
+    text_muted: "#6b7280"  # Gray-500 — secondary text (contrast 4.6:1)
+    text_disabled: "#9ca3af" # Gray-400
+
+  feedback:
+    error: "#ef4444"       # Red-500 — inline validation errors
+    error_bg: "#fef2f2"    # Red-50 — error field background
+    error_border: "#fca5a5" # Red-300 — error field border
+    success: "#10b981"     # Emerald-500 — success messages
+
+typography:
+  font_family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  scale:
+    xs: "0.75rem"    # 12px — labels, captions
+    sm: "0.875rem"   # 14px — body small, input text
+    base: "1rem"     # 16px — body text (min for WCAG readability)
+    lg: "1.125rem"   # 18px — subheadings
+    xl: "1.25rem"    # 20px — headings
+    2xl: "1.5rem"    # 24px — page titles
+    3xl: "1.875rem"  # 30px — hero headings
+  weight:
+    normal: "400"
+    medium: "500"
+    semibold: "600"
+    bold: "700"
+  line_height:
+    tight: "1.25"
+    base: "1.5"
+    relaxed: "1.75"
+
+spacing:
+  # 4px base unit
+  1: "0.25rem"   # 4px
+  2: "0.5rem"    # 8px
+  3: "0.75rem"   # 12px
+  4: "1rem"      # 16px
+  5: "1.25rem"   # 20px
+  6: "1.5rem"    # 24px
+  8: "2rem"      # 32px
+  10: "2.5rem"   # 40px
+  12: "3rem"     # 48px
+  16: "4rem"     # 64px
+
+borders:
+  radius:
+    sm: "4px"
+    base: "8px"
+    lg: "12px"
+    full: "9999px"   # pill shape for badges
+  width:
+    base: "1px"
+    focus: "2px"
+
+shadows:
+  sm: "0 1px 2px rgba(0,0,0,0.05)"
+  base: "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)"
+  md: "0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06)"
+  lg: "0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05)"
+
+breakpoints:
+  # CSS media query breakpoints (min-width)
+  sm: "640px"    # Mobile landscape
+  md: "768px"    # Tablet
+  lg: "1024px"   # Desktop
+  xl: "1280px"   # Wide desktop
+  # Range: 320px (min supported) — 1920px (max supported) per TDD.md
+
+interactive:
+  focus_ring: "2px solid #6366f1"        # WCAG 2.1 AA keyboard focus indicator
+  focus_ring_offset: "2px"
+  transition: "150ms ease-in-out"
+  min_tap_target: "44px"                  # WCAG 2.5.5 — minimum touch target size
+
+accessibility:
+  wcag_level: "AA"
+  min_contrast_body: "4.5:1"
+  min_contrast_large_text: "3:1"          # Large text = 18pt or 14pt bold
+  focus_visible: true                      # All interactive elements must show focus ring
+  aria_labels: required                    # All icon-only buttons must have aria-label
