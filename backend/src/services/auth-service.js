@@ -5,7 +5,7 @@ const { signAccessToken } = require('../utils/jwt');
 const BCRYPT_ROUNDS = 12; // security-standards.md SEC-008: ≥12 rounds
 
 // Dummy hash for constant-time compare when email not found (prevents timing-based user enumeration)
-const DUMMY_HASH = '$2b$12$abcdefghijklmnopqrstuuVGOtbVH.pB5XAT.Rb0OAB/iQ9nYf1Da';
+const DUMMY_HASH = '$2b$12$abcdefghijklmnopqrstuuVGOtbVH.pB5XAT.Rb0OAB/iQ9nYf1Da'; // nosemgrep: generic.secrets.security.detected-bcrypt-hash.detected-bcrypt-hash
 
 async function register(email, password) {
   const existing = await pool.query('SELECT id FROM users WHERE email = $1', [email]);
