@@ -19,14 +19,29 @@ horizons:
         goal: "Establish all agent definitions, standards, and procedures"
 
   next:
-    label: "Next (Next Quarter)"
-    theme: "Core Product"
+    label: "Next (Current Quarter)"
+    theme: "Core Product — MVP"
     epics:
+      - id: EPIC-001-continued
+        title: "User Onboarding & Authentication"
+        status: IN_PROGRESS
+        sprint: "1"
+        goal: "Registration + Login + JWT auth — the gateway to all product value"
       - id: EPIC-002
-        title: "Core Feature Set"
+        title: "Task Lifecycle Management"
+        status: IN_PROGRESS
+        sprint: "1"
+        goal: "Full task CRUD (create, view, update status, delete)"
+      - id: EPIC-003
+        title: "Time-Horizon Views"
         status: PLANNED
-        sprint: "1-4"
-        goal: "Build the primary product value proposition"
+        sprint: "2"
+        goal: "Daily/Weekly/Monthly task dashboards"
+      - id: EPIC-004
+        title: "Context Switching & Filtering"
+        status: PLANNED
+        sprint: "2"
+        goal: "Personal/Professional category toggle with color-coding"
 
   later:
     label: "Later (Future)"
