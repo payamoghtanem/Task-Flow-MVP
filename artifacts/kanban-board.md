@@ -1,5 +1,5 @@
 # Kanban Board
-# Last Updated: 2026-06-19T12:30:00Z — Scrum Master (03) + Router (00)
+# Last Updated: 2026-06-19T12:50:00Z — Scrum Master (03)
 # Sprint: 1 | Goal: "Users can register, log in securely, and perform full CRUD on categorized tasks"
 
 ## WIP Limits
@@ -16,20 +16,18 @@
 | BACKLOG | IN PROGRESS | IN REVIEW | TESTING | DONE |
 |---------|-------------|-----------|---------|------|
 | **Phase 1 — Foundation** | | | | **Sprint 0 (Complete)** |
-| S1-T01: DB Migration SQL (data-engineer) | | | | SPRINT-0-001: Repo init |
-| S1-T02: Backend scaffold (fullstack-dev) | | | | SPRINT-0-002: 22 agent files |
-| S1-T03: Frontend scaffold (fullstack-dev) | | | | SPRINT-0-003: Standards v1.0 |
-| S1-T04: Wireframes (ui-ux-designer) | | | | SPRINT-0-004: Frameworks v1.0 |
-| **Phase 2 — Authentication** | | | | SPRINT-0-005: Procedures v1.0 |
-| S1-T05: POST /api/auth/register (fullstack-dev) | | | | SPRINT-0-006: Workflows v1.0 |
-| S1-T06: Registration form UI (fullstack-dev) | | | | SPRINT-0-007: Memory arch |
-| S1-T07: POST /api/auth/login + logout (fullstack-dev) | | | | SPRINT-0-008: Model mapping |
-| S1-T08: Auth middleware (fullstack-dev) | | | | SPRINT-0-009: CI/CD gates |
-| S1-T09: Login UI + AuthContext + ProtectedRoute (fullstack-dev) | | | | |
-| **Phase 3 — Task Management** | | | | |
-| S1-T10: POST /api/tasks (fullstack-dev) | | | | |
-| S1-T11: GET /api/tasks (fullstack-dev) | | | | |
-| S1-T12: Dashboard UI (fullstack-dev) | | | | |
+| S1-T03: Frontend scaffold (fullstack-dev) | | | | SPRINT-0-001: Repo init |
+| S1-T04: Wireframes (ui-ux-designer) | | | | SPRINT-0-002: 22 agent files |
+| **Phase 2 — Authentication** | | | | SPRINT-0-003: Standards v1.0 |
+| S1-T05: POST /api/auth/register (fullstack-dev) | | | | SPRINT-0-004: Frameworks v1.0 |
+| S1-T06: Registration form UI (fullstack-dev) | | | | SPRINT-0-005: Procedures v1.0 |
+| S1-T07: POST /api/auth/login + logout (fullstack-dev) | | | | SPRINT-0-006: Workflows v1.0 |
+| S1-T08: Auth middleware (fullstack-dev) | | | | SPRINT-0-007: Memory arch |
+| S1-T09: Login UI + AuthContext + ProtectedRoute (fullstack-dev) | | | | SPRINT-0-008: Model mapping |
+| **Phase 3 — Task Management** | | | | SPRINT-0-009: CI/CD gates |
+| S1-T10: POST /api/tasks (fullstack-dev) | | | | **Sprint 1** |
+| S1-T11: GET /api/tasks (fullstack-dev) | | | | S1-T01: DB Migration SQL ✓ |
+| S1-T12: Dashboard UI (fullstack-dev) | | | | S1-T02: Backend scaffold ✓ |
 | S1-T13: PATCH /api/tasks/:id (fullstack-dev) | | | | |
 | S1-T14: DELETE /api/tasks/:id (fullstack-dev) | | | | |
 | S1-T15: TaskCard UI (fullstack-dev) | | | | |
@@ -46,6 +44,26 @@
 
 ---
 
+## Completed Task Cards
+
+### S1-T01
+**Story**: STORY-001
+**Agent**: data-engineer (09)
+**Status**: DONE
+**Started**: 2026-06-19T12:30:00Z
+**Completed**: 2026-06-19T12:50:00Z
+**Notes**: PostgreSQL migration SQL — users + tasks tables, 3 PG ENUM types, 5 indexes (3 required + 2 composite), idempotent + reversible
+
+### S1-T02
+**Story**: STORY-001
+**Agent**: fullstack-developer (08)
+**Status**: DONE
+**Started**: 2026-06-19T12:30:00Z
+**Completed**: 2026-06-19T12:50:00Z
+**Notes**: Node.js/Express scaffold — app factory pattern, pg pool, migrate runner, GET /health, helmet + cors, .env.example
+
+---
+
 ## Task Card Format
 ```markdown
 ### S1-T##
@@ -58,7 +76,7 @@
 ```
 
 ## Sprint 1 Progress
-- **Total Tasks**: 24 | **Backlog**: 24 | **Done**: 0 | **Blocked**: 0 | **Completion**: 0%
+- **Total Tasks**: 24 | **Done**: 2 | **Backlog**: 22 | **Blocked**: 0 | **Completion**: 8%
 
 ## Last Updated
-2026-06-19T12:30:00Z — Sprint 1 Planning Complete — Scrum Master (03)
+2026-06-19T12:50:00Z — S1-T01 + S1-T02 DONE — data-engineer (09) + fullstack-developer (08)
